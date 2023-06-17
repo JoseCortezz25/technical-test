@@ -32,18 +32,19 @@ const Defaulters = () => {
         setDefaulters(data);
       })
       .catch(() => setStatus("error"));
-  }, [status]);
+  }, [openModal]);
 
   const handleOpenModel = (selected) => {
     setSelectedDefaulter(selected);
     setOpenModal((prevState) => !prevState);
   };
-
+  
   const handleUpdated =  (employeeId) => {
     fetch(`/api/checkout/${employeeId}`, {
       method: "DELETE",
     })
-      .then((data) => {
+    .then((data) => {
+        setStatus("loading")
         setOpenModal((prevState) => !prevState)
       })
       .catch((error) => {
