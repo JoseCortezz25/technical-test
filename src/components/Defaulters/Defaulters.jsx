@@ -9,12 +9,10 @@ import { useNavigate } from "react-router-dom";
 
 const Defaulters = () => {
   const { user } = useUser();
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [openModal, setOpenModal] = useState(false);
-  const [defaulters, setDefaulters] = useState(
-    window.localStorage.getItem("DEFAULTERS") || []
-  );
-  const [status, setStatus] = useState("idle");
+  const [defaulters, setDefaulters] = useState([]);
+  const [status, setStatus] = useState("loading");
 
   const [selectedDefauler, setSelectedDefaulter] = useState({
     id: 0,
@@ -31,11 +29,10 @@ const Defaulters = () => {
       .then((response) => response.json())
       .then((data) => {
         setStatus("success");
-        console.log("data", data);
         setDefaulters(data);
       })
       .catch(() => setStatus("error"));
-  }, []);
+  }, [status]);
 
   const handleOpenModel = (selected) => {
     setSelectedDefaulter(selected);
@@ -47,9 +44,7 @@ const Defaulters = () => {
       method: "DELETE",
     })
       .then((data) => {
-        console.log(data);
         setOpenModal((prevState) => !prevState)
-        navigate('/defaulters')
       })
       .catch((error) => {
         throw new Error(error.message)
@@ -63,12 +58,11 @@ const Defaulters = () => {
           Usuario <u>{user.username}</u>
         </h3>
         <h1>Morosos</h1>
-        Loading awesomeness...
+        Loading...
       </div>
     );
   }
-
-  if (defaulters === null || status === "error") {
+  if (!(defaulters.length > 0)) {
     return (
       <div className="Defaulters section">
         <h3>

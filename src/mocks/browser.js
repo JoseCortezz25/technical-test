@@ -224,8 +224,15 @@ let checkout = []
 
 const worker = setupWorker(
   rest.get('/api/products', (req, res, ctx) => {
+    if (ctx.status >= 400) {
+      return res(
+        ctx.status(500),
+        ctx.json({ message: 'Ocurrió un error al obtener los productos' })
+      )
+    }
+
     return res(
-      ctx.status(300),
+      ctx.status(200),
       ctx.json(products)
     )
   }),
@@ -268,7 +275,7 @@ const worker = setupWorker(
 
   rest.get('/api/checkout', (req, res, ctx) => {
     return res(
-      ctx.status(300),
+      ctx.status(200),
       ctx.json(checkout)
     )
   }),

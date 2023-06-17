@@ -9,7 +9,6 @@ import "./Header.scss";
 const Header = ({ setSearchText }) => {
   const { cart } = useCart();
   const { user } = useUser();
-  console.log("user", Object.entries(user) === 0);
 
   const onSearchValueChange = (event) => {
     setSearchText(event.target.value);

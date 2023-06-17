@@ -12,7 +12,6 @@ export const reducerUser = (state, action) => {
   switch (actionType) {
     case USER_ACTION_TYPES.LOGIN: {
       if (actionPayload.username === 'admin' && actionPayload.password === 'admin') {
-        console.log({ employeeId: 1, username: actionPayload.username, products: null, role: 'ADMIN' });
         const newUser = {
           employeeId: 1,
           username: actionPayload.username,

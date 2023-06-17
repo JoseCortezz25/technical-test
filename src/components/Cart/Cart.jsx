@@ -20,8 +20,7 @@ const Cart = () => {
       body: JSON.stringify({ user, cart }),
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         navigate('/')
       })
       .catch((error) => console.error(error));
