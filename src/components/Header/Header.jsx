@@ -18,9 +18,14 @@ const Header = ({ setSearchText }) => {
   return (
     <header>
       {Object.keys(user).length === 0 || (
-        <div className="greeting">
-          <h2>Bienvenido, {user.username}</h2>
-        </div>
+        <>
+          <div className="greeting">
+            <h2>Bienvenido, {user.username}</h2>
+            <Link to="/login">
+              <span>Regresar</span>
+            </Link>
+          </div>
+        </>
       )}
       <section>
         <nav>

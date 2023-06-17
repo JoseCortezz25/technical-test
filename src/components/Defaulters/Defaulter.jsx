@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import dollarIcon from "../../assets/dollar.svg";
 
-const Defaulter = ({ name, quantity, handleOpenModel }) => {
+const Defaulter = ({ id, name, quantity, handleOpenModel, priceTotal }) => {
   return (
     <article className="Item">
       <div className="Item--content">
@@ -9,14 +9,17 @@ const Defaulter = ({ name, quantity, handleOpenModel }) => {
         <p>
           Cantidad del usuario: <b>{quantity}</b>
         </p>
+        <p>Precio total a pagar: <b>${Math.round(priceTotal)}</b></p>
       </div>
       <div className="Item--buttons">
         <button
           onClick={() =>
             handleOpenModel(() => {
               return {
+                id,
                 name,
                 quantity,
+                priceTotal
               };
             })
           }
@@ -31,6 +34,8 @@ const Defaulter = ({ name, quantity, handleOpenModel }) => {
 Defaulter.propTypes = {
   name: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  priceTotal: PropTypes.number.isRequired,
   handleOpenModel: PropTypes.func,
 };
 

@@ -1,7 +1,10 @@
 import { createContext, useReducer } from "react";
 import PropTypes from "prop-types";
-import { reducerCart, CART_ACTION_TYPES, initialCartState } from "../reducers/cart";
-
+import {
+  reducerCart,
+  CART_ACTION_TYPES,
+  initialCartState,
+} from "../reducers/cart";
 export const CartContext = createContext();
 
 export function CartContextProvider({ children }) {
@@ -21,7 +24,7 @@ export function CartContextProvider({ children }) {
     });
   };
 
-  const clearCart = () => dispatch({ type: CART_ACTION_TYPES.CLEAN_CART });
+  const clearCart = () => dispatch({ type: CART_ACTION_TYPES.CLEAR_CART });
 
   return (
     <CartContext.Provider

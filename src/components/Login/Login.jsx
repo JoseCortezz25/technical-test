@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUser } from "../../hooks/useUser";
+import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 
 const Login = () => {
   const [inputs, setInputs] = useState({ username: "", password: "" });
-  const { login } = useUser();
+  const { login, user } = useUser();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user.role === "ADMIN") {
+      return navigate("/defaulters");
+    }
+    if (user.role === "USER") {
+      return navigate("/login");
+    }
+  }, [user.role, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

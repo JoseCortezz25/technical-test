@@ -13,6 +13,11 @@ header {
   .greeting {
     margin-bottom: $mb-1;
     text-transform: capitalize;
+    
+    span {
+      color: $text-color;
+      font-weight: bold;
+    }
   }
 
   nav {
@@ -40,7 +45,7 @@ header {
         background-color: $red-color;
         font-size: $smaller-font-size;
         color: white;
-        padding: 4px 9px;
+        padding: 5px 9px;
         font-weight: $font-semi-bold;
         border-radius: 25px;
       }

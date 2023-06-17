@@ -1,7 +1,6 @@
 import { getRandomNumber, updateLocalStorage } from "./utilities";
 export const initialUserState = JSON.parse(window.localStorage.getItem('USER')) || {};
 
-
 export const USER_ACTION_TYPES = {
   LOGIN: 'ADD_USER',
   ADD_PRODUCTS: 'ADD_PRODUCTS',
@@ -13,38 +12,22 @@ export const reducerUser = (state, action) => {
   switch (actionType) {
     case USER_ACTION_TYPES.LOGIN: {
       if (actionPayload.username === 'admin' && actionPayload.password === 'admin') {
-        console.log({ empployeeId: 1, username: actionPayload.username, products: null, role: 'admin' });
+        console.log({ employeeId: 1, username: actionPayload.username, products: null, role: 'ADMIN' });
         const newUser = {
-          empployeeId: 1,
+          employeeId: 1,
           username: actionPayload.username,
           products: null,
-          role: 'admin'
+          role: 'ADMIN'
         }
         updateLocalStorage('USER', newUser);
         return newUser;
       }
       const newUser = {
-        empployeeId: getRandomNumber(),
+        employeeId: getRandomNumber(),
         username: actionPayload.username,
         products: [],
-        role: 'user'
+        role: 'USER'
       }
-      updateLocalStorage('USER', newUser);
-      return newUser;
-    }
-
-    case USER_ACTION_TYPES.ADD_PRODUCTS: {
-      const newUser = {
-        ...state,
-        products: [
-          ...state.products,
-          {
-            pId: actionPayload.pId,
-            quantity: actionPayload.quantity
-          }
-        ]
-      }
-
       updateLocalStorage('USER', newUser);
       return newUser;
     }
