@@ -1,0 +1,30 @@
+@import "../../variables";
+
+.Defaulters {
+  h1 {
+    margin-bottom: $mb-2;
+  }
+}
+
+.Modal {
+  position: relative;
+  background-color: $body-color;
+  padding: $mb-1-5 $mb-2;
+  border-radius: $mb-1;
+  width: 60%;
+  color: $text-color;
+
+  h2 {
+    margin-bottom: $mb-1;
+  }
+
+  button {
+    margin-top: $mb-2;
+  }
+
+  .btnClose {
+    position: absolute;
+    right: 30px;
+    top: 0px;
+  }
+}

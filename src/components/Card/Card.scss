@@ -1,0 +1,54 @@
+@import "../../variables";
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $mb-1;
+  border-radius: 20px;
+
+  &:hover {
+    background-color: $light-color-gray;
+  }
+
+  .image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: $mb-1-5;
+
+    img {
+      @include image-standard;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+  }
+
+  .card-content {
+    margin-bottom: $mb-1-5;
+
+    .card-title {
+      margin-bottom: $mb-0-5;
+      text-transform: uppercase;
+    }
+  }
+
+  button {
+    background-color: white;
+    width: 45px;
+    height: 45px;
+    border: 2px solid black;
+    margin-top: $mb-1-5;
+    padding: 10px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    
+    svg, img {
+      width: 20px;
+    }
+
+    &:hover {
+      transform: scale(105%);
+    }
+  }
+}

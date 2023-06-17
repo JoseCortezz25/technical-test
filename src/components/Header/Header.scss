@@ -1,0 +1,50 @@
+@import "../../variables";
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: $mb-3 0px $mb-3 0px;
+
+  nav {
+    input {
+      width: 100%;
+      padding: $normal-font-size $h2-font-size;
+      border: 2px solid $text-color;
+      border-radius: 10px;
+      font-weight: $font-semi-bold;
+    }
+
+    button {
+      background-color: transparent;
+      padding: $normal-font-size $h2-font-size;
+      border-radius: $tiny-font-size;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      svg, img {
+        width: 30px;
+        min-width: 30px;
+        margin: auto;
+      }
+
+      &:hover {
+        background-color: $light-color-gray;
+      }
+    }
+  }
+
+  nav:nth-child(1) {
+    width: 80%;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav:nth-child(2) {
+    width: 10%;
+  }
+}

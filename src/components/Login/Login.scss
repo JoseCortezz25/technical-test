@@ -1,0 +1,79 @@
+@import "../../variables";
+
+.login {
+  width: 100%;
+
+  h2 {
+    margin-bottom: $mb-1-5;
+    text-transform: capitalize;
+  }
+
+  section:nth-child(1) {
+    height: 250px;
+    border-bottom: 1px solid $text-color;
+    margin-bottom: $mb-2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .banner-content {
+      width: 60%;
+      text-align: center;
+    }
+  }
+
+  section:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+form {
+  width: 60%;
+  label {
+    color: $title-color-dark;
+    font-weight: $font-semi-bold;
+    display: block;
+    margin-bottom: $mb-0-5;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: $mb-1;
+    padding: $mb-0-75 $mb-1-5;
+    border: 1px solid $text-color;
+    border-radius: 5px;
+  }
+
+  button {
+    @include standard-button;
+    @include primary-button;
+    width: 100%;
+    text-align: center;
+  }
+
+  .form-checkbox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input[type="checkbox"] {
+      width: 10%;
+      height: 20px;
+      margin-top: 10px;
+    }
+    label {
+      width: 95%;
+    }
+  }
+}
+
+.bottom-message {
+  font-size: $small-font-size;
+  margin-top: $mb-1;
+  font-weight: $font-semi-bold;
+}
