@@ -2,67 +2,90 @@ import { useState } from "react";
 import { List } from "../List/List";
 import { Defaulter } from "./Defaulter";
 import { Modal } from "../Modal/Modal";
-import closeIcon from '../../assets/close.svg'
+import closeIcon from "../../assets/close.svg";
 import "./Defaulters.scss";
 
 const Defaulters = () => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedDefauler, setSelectedDefaulter] = useState({
     name: "",
-    amount: 0,
+    quantity: 0,
   });
   const username = "Admin admin";
   const users = [
     {
-      id: 1,
+      employeeId: "abc123",
       username: "usuario1",
-      amount: 100,
+      products: [
+        { pId: "xyz987", quantity: 5 }
+      ]
     },
     {
-      id: 2,
+      employeeId: "def456",
       username: "usuario2",
-      amount: 50,
+      products: [
+        { pId: "lmn654", quantity: 8 }
+      ]
     },
     {
-      id: 3,
+      employeeId: "ghi789",
       username: "usuario3",
-      amount: 75,
+      products: [
+        { pId: "qrs321", quantity: 2 },
+        { pId: "tuv987", quantity: 4 }
+      ]
     },
     {
-      id: 4,
+      employeeId: "jkl012",
       username: "usuario4",
-      amount: 30,
+      products: [
+        { pId: "wxy654", quantity: 3 }
+      ]
     },
     {
-      id: 5,
+      employeeId: "mno345",
       username: "usuario5",
-      amount: 90,
+      products: [
+        { pId: "pqr987", quantity: 6 }
+      ]
     },
     {
-      id: 6,
+      employeeId: "stu678",
       username: "usuario6",
-      amount: 10,
+      products: [
+        { pId: "vwx321", quantity: 1 },
+        { pId: "yza654", quantity: 7 }
+      ]
     },
     {
-      id: 7,
+      employeeId: "bcd901",
       username: "usuario7",
-      amount: 45,
+      products: [
+        { pId: "cde987", quantity: 9 }
+      ]
     },
     {
-      id: 8,
+      employeeId: "fgh234",
       username: "usuario8",
-      amount: 60,
+      products: [
+        { pId: "ghi654", quantity: 2 },
+        { pId: "jkl987", quantity: 3 }
+      ]
     },
     {
-      id: 9,
+      employeeId: "mno567",
       username: "usuario9",
-      amount: 20,
+      products: [
+        { pId: "pqr321", quantity: 5 }
+      ]
     },
     {
-      id: 10,
+      employeeId: "stu890",
       username: "usuario10",
-      amount: 5,
-    },
+      products: [
+        { pId: "vwx654", quantity: 4 }
+      ]
+    }
   ];
 
   const handleOpenModel = (selected) => {
@@ -81,7 +104,7 @@ const Defaulters = () => {
           <Defaulter
             key={user.id}
             name={user.username}
-            amount={user.amount}
+            quantity={user.products.reduce((sum, item) => sum + item.quantity, 0)}
             handleOpenModel={handleOpenModel}
           />
         ))}
@@ -89,12 +112,15 @@ const Defaulters = () => {
       {openModal && (
         <Modal>
           <section className="Modal">
-            <button className="btnClose" onClick={() => setOpenModal(prevState => !prevState)}>
+            <button
+              className="btnClose"
+              onClick={() => setOpenModal((prevState) => !prevState)}
+            >
               <img src={closeIcon} alt="" />
             </button>
             <h2>{selectedDefauler.name}</h2>
             <p>
-              Cantidad: <b>{selectedDefauler.amount} unidades</b>
+              Cantidad: <b>{selectedDefauler.quantity} unidades</b>
             </p>
             <button className="btnStandard">Ya pagó</button>
           </section>

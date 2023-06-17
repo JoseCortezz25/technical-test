@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,400&family=Montserrat:wght@400;600&family=Poppins:wght@300;500;600&display=swap");
+@import "./variables";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 992px) {
+  $big-font-size: 2.75rem;
+  $h1-font-size: 1.5rem;
+  $h2-font-size: 1.25rem;
+  $h3-font-size: 1rem;
+  $normal-font-size: 0.938rem;
+  $small-font-size: 0.813rem;
+  $smaller-font-size: 0.75rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: $body-font;
+  font-size: $normal-font-size;
+}
+
+body {
+  background-color: $body-color;
+  color: $text-color;
+}
+
+h1,
+h2,
+h3 {
+  color: $title-color;
+  font-weight: $font-semi-bold;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.section__button {
+  display: flex;
+}
+
+.btn__secondary {
+  color: $title-color;
+  border: 2px solid transparent;
+}
+
+.btn__secondary:hover {
+  border: 2px solid $title-color;
+  background-color: $light-color-gray;
+}
+
+.btn__primary {
+  background-color: $title-color;
+  color: $container-color;
+}
+
+.btn__primary:hover {
+  background-color: $title-color-dark;
+}
+
+.button {
+  display: inline-block;
+  background-color: $title-color;
+  color: $container-color;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.7rem;
+  font-weight: $font-semi-bold;
+}
+
+.button img {
+  margin-left: 15px;
+  width: 23px;
+  height: 23px;
+}
+
+.button:hover {
+  background-color: $title-color-dark;
+}
+
+.button__icon {
+  margin-left: $mb-0-5;
+}
+
+.button--flex {
+  display: inline-flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding: 3rem 0 2rem;
+}
+
+.section__title {
+  font-size: $h1-font-size;
+  color: $title-color;
+}
+
+.ModalBackground {
+  background: rgba(32,35,41,.8);
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.btnStandard {
+  @include standard-button;
+  @include secondary-button;
+  width: 100%;
+  border-radius: 0px;
+  border: 2px solid $title-color;
+}
+
+.btnClose {
+  all: unset;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(95%);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    margin-left: $mb-1-5;
+    margin-right: $mb-1-5;
+  }
+
+  .button {
+    padding: 1rem 1.75rem;
+  }
+
+  .button__icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    padding: 2rem 0 4rem;
+  }
+
+  .container {
+    margin-left: $mb-1;
+    margin-right: $mb-1;
+  }
+
+  .Main {
+    width: 85%;
+    margin: auto;
+  }
+
+  .grid {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+}
+
+@media screen and (max-width: 350px) {
+  :root {
+    $big-font-size: 2.25rem;
+  }
+
+  .container {
+    margin-left: $mb-1;
+    margin-right: $mb-1;
+  }
+}

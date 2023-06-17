@@ -1,10 +1,14 @@
 import { Header } from "./components/Header/Header";
 import { List } from "./components/List/List";
 import { Card } from "./components/Card/Card";
+import { useCart } from "./hooks/useCart";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const { addToCart } = useCart();
+  const [searchText, setSearchText] = useState("");
+  
   const products = [
     {
       pId: "xyz987",
@@ -98,37 +102,18 @@ function App() {
     }
   ];
 
+  const searchedCart = products.filter(item => item.name.toLowerCase().includes(searchText.toLowerCase()))
+
   return (
     <>
-      <Header />
-      <List title="Favoritos">
-        {products.map((product) => (
+      <Header setSearchText={setSearchText} />
+      <List title="Productos">
+        {searchedCart.map((product) => (
           <Card
             key={product.pId}
-            title={product.name}
-            description={product.description}
-            image={product.image}
-          ></Card>
-        ))}
-      </List>
-      <List title="Favoritos">
-        {products.map((product) => (
-          <Card
-            key={product.pId}
-            title={product.name}
-            description={product.description}
-            image={product.image}
-          ></Card>
-        ))}
-      </List>
-      <List title="Favoritos">
-        {products.map((product) => (
-          <Card
-            key={product.pId}
-            title={product.name}
-            description={product.description}
-            image={product.image}
-          ></Card>
+            product={product}
+            addToCart={addToCart}
+          />
         ))}
       </List>
     </>

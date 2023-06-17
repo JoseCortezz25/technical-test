@@ -1,6 +1,16 @@
+import { useState } from "react";
+import { useUser } from "../../hooks/useUser";
 import "./Login.scss";
 
 const Login = () => {
+  const [inputs, setInputs] = useState({ username: "", password: "" });
+  const { login } = useUser();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    login(inputs);
+  };
+
   return (
     <div className="login">
       <section>
@@ -14,14 +24,34 @@ const Login = () => {
       </section>
       <section>
         <h2>Sign in</h2>
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
-            <input type="text" name="username" id="username" />
+            <input
+              type="text"
+              name={inputs.username}
+              id="username"
+              onChange={({ target }) =>
+                setInputs((prevState) => ({
+                  ...prevState,
+                  username: target.value,
+                }))
+              }
+            />
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" id="password" />
+            <input
+              type="password"
+              name={inputs.password}
+              id="password"
+              onChange={({ target }) =>
+                setInputs((prevState) => ({
+                  ...prevState,
+                  password: target.value,
+                }))
+              }
+            />
           </div>
 
           <div className="form-checkbox">

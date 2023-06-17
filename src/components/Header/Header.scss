@@ -2,10 +2,18 @@
 
 header {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: $mb-3 0px $mb-3 0px;
+  
+  section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .greeting {
+    margin-bottom: $mb-1;
+    text-transform: capitalize;
+  }
 
   nav {
     input {
@@ -17,6 +25,7 @@ header {
     }
 
     button {
+      position: relative;
       background-color: transparent;
       padding: $normal-font-size $h2-font-size;
       border-radius: $tiny-font-size;
@@ -24,6 +33,17 @@ header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      span {
+        position: absolute;
+        bottom: 0px;
+        background-color: $red-color;
+        font-size: $smaller-font-size;
+        color: white;
+        padding: 4px 9px;
+        font-weight: $font-semi-bold;
+        border-radius: 25px;
+      }
       
       svg, img {
         width: 30px;
