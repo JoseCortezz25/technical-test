@@ -18,11 +18,18 @@ export function UserContextProvider({ children }) {
     });
   };
 
+  const logout = () => {
+    dispatch({
+      type: USER_ACTION_TYPES.LOGOUT,
+    })
+  }
+
   return (
     <UserContext.Provider
       value={{
         user: state,
         login,
+        logout
       }}
     >
       {children}

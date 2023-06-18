@@ -9,13 +9,20 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log('user', user);
+    debugger
+    if(!user) {
+      return;
+    }
+
     if (user.role === "ADMIN") {
       return navigate("/defaulters");
     }
+
     if (user.role === "USER") {
-      return navigate("/login");
+      return navigate("/");
     }
-  }, [user.role, navigate]);
+  }, [user?.role, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

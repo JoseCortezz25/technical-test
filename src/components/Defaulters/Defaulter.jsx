@@ -9,7 +9,7 @@ const Defaulter = ({ id, name, quantity, handleOpenModel, priceTotal }) => {
         <p>
           Cantidad del usuario: <b>{quantity}</b>
         </p>
-        <p>Precio total a pagar: <b>${Math.round(priceTotal)}</b></p>
+        <p>Precio total a pagar: <b>${Math.round(priceTotal) * quantity}</b></p>
       </div>
       <div className="Item--buttons">
         <button

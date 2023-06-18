@@ -1,6 +1,6 @@
 import { setupWorker, rest } from 'msw';
 
-const products = [
+export const products = [
   {
     pId: "xyz987",
     name: "Empanada",

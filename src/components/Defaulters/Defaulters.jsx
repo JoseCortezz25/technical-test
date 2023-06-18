@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 const Defaulters = () => {
   const { user } = useUser();
-  // const navigate = useNavigate()
   const [openModal, setOpenModal] = useState(false);
   const [defaulters, setDefaulters] = useState([]);
   const [status, setStatus] = useState("loading");
@@ -115,7 +114,7 @@ const Defaulters = () => {
             </p>
             <p>
               Precio total a pagar: 
-              <b> ${Math.round(selectedDefauler.priceTotal)}</b>
+              <b> ${Math.round(selectedDefauler.priceTotal) * selectedDefauler.quantity}</b>
             </p>
             <button
               className="btnStandard"

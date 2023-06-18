@@ -8,7 +8,7 @@ import "./Header.scss";
 
 const Header = ({ setSearchText }) => {
   const { cart } = useCart();
-  const { user } = useUser();
+  const { user, logout } = useUser();
 
   const onSearchValueChange = (event) => {
     setSearchText(event.target.value);
@@ -21,7 +21,7 @@ const Header = ({ setSearchText }) => {
           <div className="greeting">
             <h2>Bienvenido, {user.username}</h2>
             <Link to="/login">
-              <span>Regresar</span>
+              <button className="btnSimple" onClick={() => logout()}>Cerrar sesión</button>
             </Link>
           </div>
         </>

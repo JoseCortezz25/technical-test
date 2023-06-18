@@ -4,6 +4,7 @@ export const initialUserState = JSON.parse(window.localStorage.getItem('USER')) 
 export const USER_ACTION_TYPES = {
   LOGIN: 'ADD_USER',
   ADD_PRODUCTS: 'ADD_PRODUCTS',
+  LOGOUT: 'LOGOUT'
 }
 
 export const reducerUser = (state, action) => {
@@ -29,6 +30,12 @@ export const reducerUser = (state, action) => {
       }
       updateLocalStorage('USER', newUser);
       return newUser;
+    }
+
+    case USER_ACTION_TYPES.LOGOUT: {
+      window.localStorage.clear()
+      // updateLocalStorage('USER', {});
+      break;
     }
 
     default:

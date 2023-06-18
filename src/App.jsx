@@ -2,13 +2,14 @@ import { Header } from "./components/Header/Header";
 import { List } from "./components/List/List";
 import { Card } from "./components/Card/Card";
 import { useCart } from "./hooks/useCart";
-import "./App.css";
+import { products as allProducts } from "./mocks/browser";
 import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
   const { addToCart } = useCart();
   const [searchText, setSearchText] = useState("");
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(allProducts || []);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -25,8 +26,8 @@ function App() {
         setLoading(false);
         setProducts(data);
       })
-      .catch(() => setLoading(false))
-  }, [loading]);
+      .catch((error) => console.log(error))
+  }, []);
 
   const searchedCart = products.filter((item) =>
     item.name.toLowerCase().includes(searchText.toLowerCase())
