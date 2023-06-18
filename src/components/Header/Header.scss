@@ -3,7 +3,18 @@
 header {
   width: 100%;
   margin: $mb-3 0px $mb-3 0px;
-  
+
+  .btnSimple {
+    padding: 7px 10px;
+    border-radius: $mb-0-5;
+    font-size: $smaller-font-size;
+    font-weight: $font-semi-bold;
+
+    &:active {
+      transform: scale(95%);
+    }
+  }
+
   section {
     display: flex;
     justify-content: space-between;

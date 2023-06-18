@@ -10,7 +10,6 @@ const Login = () => {
 
   useEffect(() => {
     console.log('user', user);
-    debugger
     if(!user) {
       return;
     }
